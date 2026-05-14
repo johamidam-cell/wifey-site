@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for wifey ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background: linear-gradient(to bottom, #120b12, #2a1826, #3b2235);
+    color:white;
+    overflow-x:hidden;
+    font-family:'Gaegu', cursive;
+}
+
+/* LOCK SCREEN */
+#lockscreen{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, #120b12, #2a1826);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.lock-box{
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    border:2px solid rgba(255,182,217,0.4);
+    box-shadow:0 0 20px rgba(255,105,180,0.2);
+    width:320px;
+}
+
+.lock-box h1{
+    color:#ffb6d9;
+    margin-bottom:20px;
+}
+
+.lock-box p{
+    color:#ffe6f3;
+    font-size:20px;
+}
+
+.lock-box input{
+    width:90%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    border-radius:15px;
+    background:#ffd6ec;
+    color:#2a1826;
+    font-size:18px;
+    outline:none;
+    font-family:'Gaegu', cursive;
+}
+
+.lock-box button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    background:#ff8fc7;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    font-family:'Gaegu', cursive;
+}
+
+#wrong{
+    color:#ff9eb5;
+    margin-top:10px;
+}
+
+/* MAIN */
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding:40px 20px;
+    display:none;
+}
+
+.title{
+    text-align:center;
+    font-size:60px;
+    color:#ffb6d9;
+    text-shadow:0 0 15px #ff69b4;
+    animation: float 3s ease-in-out infinite;
+}
+
+.subtitle{
+    text-align:center;
+    color:#ffd6ec;
+    font-size:22px;
+}
+
+/* CALENDAR */
+.calendar{
+    width:320px;
+    margin:30px auto;
+    padding:20px;
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    border:2px solid rgba(255,182,217,0.4);
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,105,180,0.2);
+}
+
+.days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+    color:#ffe6f3;
+}
+
+.special{
+    background:#ff8fc7;
+    border-radius:50%;
+    padding:5px;
+    box-shadow:0 0 15px pink;
+    animation: glow 2s infinite;
+}
+
+/* SCRAPBOOK */
+.paper{
+    background:rgba(255,255,255,0.08);
+    border:2px solid rgba(255,182,217,0.4);
+    border-radius:25px;
+    padding:35px;
+    margin:30px 0;
+    box-shadow:0 0 20px rgba(255,105,180,0.2);
+    transform:rotate(-1deg);
+}
+
+.paper:nth-child(even){
+    transform:rotate(1deg);
+}
+
+.paper h2{
+    color:#ffb6d9;
+    font-family:'Playfair Display', serif;
+}
+
+/* PHOTO */
+.photo-btn{
+    padding:12px 20px;
+    background:#ff8fc7;
+    border:none;
+    border-radius:15px;
+    color:white;
+    cursor:pointer;
+    font-family:'Gaegu', cursive;
+}
+
+#photoBox{
+    display:none;
+    margin-top:15px;
+}
+
+#photoBox img{
+    width:100%;
+    max-width:300px;
+    border-radius:20px;
+}
+
+/* QUOTE */
+.quote{
+    text-align:center;
+    font-size:28px;
+    color:#ffc7e7;
+    margin:60px 0;
+    text-shadow:0 0 10px pink;
+}
+
+/* STAR ANIMATION */
+.star{
+    position:absolute;
+    color:#ffb6d9;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle{
+    0%{opacity:0.2; transform:translateY(0);}
+    50%{opacity:1;}
+    100%{opacity:0.2; transform:translateY(-20px);}
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes glow{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+#musicBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#ff8fc7;
+    border:none;
+    padding:12px;
+    border-radius:15px;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOCK -->
+<div id="lockscreen">
+<div class="lock-box">
+<h1>♡ enter password ♡</h1>
+<p>what is your nickname in my messenger?</p>
+<input type="password" id="password">
+<button onclick="checkPassword()">unlock ♡</button>
+<p id="wrong"></p>
+</div>
+</div>
+
+<!-- MAIN -->
+<div class="container" id="mainContent">
+
+<h1 class="title">happy 18th, wifey ♡</h1>
+<p class="subtitle">from your girl, nicole ⋆౨ৎ˚⟡˖ ࣪</p>
+
+<!-- CALENDAR -->
+<div class="calendar">
+<div class="days">
+<span>sun</span><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span>
+
+<span></span><span></span><span></span><span></span><span></span>
+
+<span>1</span><span>2</span><span>3</span>
+
+<span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+
+<span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+
+<span>18</span><span>19</span><span class="special">20 ♡</span><span>21</span>
+</div>
+</div>
+
+<!-- LETTER -->
+<div class="paper">
+<h2>my letter to you</h2>
+<p>
+Hi my girly!~<br><br>
+
+Happy 18th day! This is your girl—nicole on your dayyy~~~<br><br>
+
+It's 12:00 AM right now and I am sending you this message because it's your dayyy!!<br><br>
+
+I have a lot of things to say! But first, I want to wish you a happy happy birthday and I hope you enjoy your day today and of course I also wish that your everyday life is full of pink cherry blossom even if we don't have cherries in this Pilipinas!<br><br>
+
+Alamo ba? I never tell you this or maybe I have pero whatever you do, I am so proud of you!! Like super, you don't know how much proud I am of you... Like in eternity, you are one of the person I am proud of! I am proud of you more than you're proud of me!<br><br>
+
+You are exceptionally talented like bro, how can you draw beautifully? sing soothingly? dance smoothly? play instrument envyingly? and of course write songs!!! You're so fucking talented that I actually want to show you off to the world!!<br><br>
+
+When I first met you, my first impression of you is like you'll be one of those girls? Alamo yung.. girls at the back? Those mean girls, kasi in the first sight you look so intimidating like I actually don't want to get close to you or talk to you even because you look menacing and cold. Like, if I try to approach you or something like that, you'll just ignore me and roll your eyes at me! But then, you sit next to me I mean not that close but one chair apart maybe? Yes that. It was the VERY first time I asked someone their FB because honestly? I never approach first, like I am scared and afraid of rejection or being ignored that's why I was hesitant to ask you that time but you actually talked to us (with Asnifah or whatever her name is, I honestly forgot). I asked your FB and you actually gave it to me! For your information, I just asked your FB for politeness, I have nooo intention of getting close to you because for the very first day— I wasn't thinking of having a friend or some companion in my senior high days up to when I am old. But, I guess.. God has a different path for me to take.<br><br>
+
+I was so glad I found you as my best friend!<br><br>
+
+It is actually the first time, like super first time that I got close to where my mother and your mother got close too. ಥ⁠‿⁠ಥ, honestly!! EVER SINCE I MET YOUUUU! LIKE LITERALLY EVER SINCE, MY LIFE TURNED UPSIDE DOWN (not upside down) because my life has been miserable and lonely and sad and depressing, but ever since you became my friend and we got close!! I unlocked so much about myself like I never really got close to anyone like how close I am to you! You're the first person I opened up to! First person I slept over with (except my relatives)! First person to scoop rice with my hand for you!<br><br>
+
+"YOU'RE LIKE A CONFETTI OF MY LIFE BECAUSE YOU ARE SO COLORFUL THAT YOU DON'T EVEN SEE YOUR OWN COLOR"<br><br>
+
+This is your day and I want you to enjoy it as much as you can!<br><br>
+
+To be honest? I don't know if I am right or not.. I am hesitant to send this to you today (May 20, 2026) because I am still not sure if it's your birthday pero whatever!!! BTW, SORRY IF I AM UNABLE TO GIVE YOU A GIFT BECAUSE I CAN'T GO OUT AND BUY SOMETHING! ALSO, I AM IN PIAGAPO RIGHT NOW! BUT IF I COULD I WOULD GIVE YOU SOMETHING BUT I AM HONESTLY NOT ABLE TO.<br><br>
+
+AGAIN! HAPPY BIRTHDAY AND I LOVE YOU SO MUCH, I'LL ALWAYS LISTEN TO YOUR PROBLEMS AND RANTS OR WHATEVER!!! I MAY NOT BE ABLE TO GIVE YOU ADVICE BUT YOU HAVE ME AS YOUR EMOTIONAL SUPPORT IN EVERY DEPRESSING DAY YOU COME ACROSS WITH!<br><br>
+
+i worked had for this<3<br><br>
+
+P.S.: Mas boto parin ako kay K.
+</p>
+</div>
+
+<!-- POEM -->
+<div class="paper">
+<h2>hara</h2>
+<p>
+written by johamida(⁠´⁠ ⁠.⁠ ⁠.̫⁠ ⁠.⁠ ⁠`⁠)<br><br>
+
+sitting on her throne like an empress,
+strumming her guitar like a songstress,
+painting her canvas like an artist.<br><br>
+
+a cruel faith she endured,
+a lonely place she wandered,
+an endless path she was stranded.<br><br>
+
+her dainty hums are truly attracting,
+her pale tone that rhymes with her pinkish lips,
+her writings that are poetically beautiful.<br><br>
+
+oh how truly beautiful she is!♡
+</p>
+</div>
+
+<!-- LYRICS -->
+<div class="paper">
+<h2>lyrics</h2>
+<p>
+taking off my glasses cuz i see the colors when you strum your guitar.<br><br>
+throwing off my id cuz i know you just by looking from afar.<br><br>
+your sound drips slow, like honey through the dark,
+the room’s half gold, half beating heart.<br><br>
+
+i wonder, in thunder, how i see you in my notes,
+i wrote these, these verses, only you can read these quotes,<br><br>
+the subject, so perfect, my heart beats like a poet.
+the air hums your name, and you don’t even know it.<br><br>
+
+your sweater smells like rain and sunday sleep ♡
+</p>
+</div>
+
+<!-- PHOTO -->
+<div class="paper">
+<h2>for you ♡</h2>
+
+<button class="photo-btn" onclick="togglePhoto()">click to open surprise ✦</button>
+
+<div id="photoBox">
+<img id="photoDisplay">
+<p id="photoText"></p>
+</div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgmusic" loop>
+<source src="music.mp3">
+</audio>
+
+<button id="musicBtn" onclick="document.getElementById('bgmusic').play()">▶ play music ♡</button>
+
+</div>
+
+<script>
+
+function checkPassword(){
+let p = document.getElementById("password").value;
+if(p.toLowerCase() === "wifey"){
+document.getElementById("lockscreen").style.display="none";
+document.getElementById("mainContent").style.display="block";
+}else{
+document.getElementById("wrong").innerText="wrong password ♡";
+}
+}
+
+let state = 0;
+
+function togglePhoto(){
+document.getElementById("photoBox").style.display="block";
+
+if(state === 0){
+document.getElementById("photoDisplay").src="photo1.jpg";
+document.getElementById("photoText").innerText="memory 1 ♡";
+state = 1;
+}else{
+document.getElementById("photoDisplay").src="photo2.jpg";
+document.getElementById("photoText").innerText="memory 2 ♡";
+state = 0;
+}
+}
+
+</script>
+
+</body>
+</html>
